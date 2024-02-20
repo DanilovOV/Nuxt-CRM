@@ -1,0 +1,7 @@
+export const ENDPOINT = 'https://cloud.appwrite.io/v1'
+export const APP_WRITE_ID = '65d5001a85386de73750'
+export const DB_ID = '65d50043a0bd70c22003'
+export const COLLECTION_DEALS = 'deals'
+export const COLLECTION_CUSTOMERS = 'customers'
+export const COLLECTION_COMMENTS = 'comments'
+export const STORAGE_ID = 'CRM-Nuxt-Storage'
