@@ -3,7 +3,7 @@
 		<NuxtImg
 			src="/loader.svg"
 			alt=""
-			width="220"
+			width="140"
 		/>
 	</div>
 </template>

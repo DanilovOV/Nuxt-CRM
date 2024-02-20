@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
+		'@pinia/nuxt',
 		'@nuxt/image',
 		'@nuxtjs/tailwindcss',
 		'nuxt-icon',
@@ -21,6 +22,9 @@ export default defineNuxtConfig({
 	shadcn: {
 		prefix: 'Ui',
 		componentDir: './components/ui',
+	},
+	pinia: {
+		storesDirs: ['./stores/**'],
 	},
 })
 
