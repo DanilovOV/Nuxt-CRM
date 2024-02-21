@@ -1,10 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	modules: [
-		'@pinia/nuxt',
-		'@nuxt/image',
+		'@nuxt/ui',
 		'@nuxtjs/tailwindcss',
+		'@nuxt/image',
 		'nuxt-icon',
 		'shadcn-nuxt',
 		[
@@ -16,6 +15,13 @@ export default defineNuxtConfig({
 						ital: [300],
 					},
 				},
+			},
+		],
+		'@pinia/nuxt',
+		[
+			'@vee-validate/nuxt',
+			{
+				autoImports: true,
 			},
 		],
 	],

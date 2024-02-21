@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MENU_DATA } from './menu.d'
+import { MENU_DATA } from './menu.data'
 </script>
 
 <template>
@@ -18,3 +18,4 @@ import { MENU_DATA } from './menu.d'
 		</NuxtLink>
 	</div>
 </template>
+./menu.data
