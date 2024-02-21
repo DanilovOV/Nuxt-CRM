@@ -4,6 +4,7 @@
 
 - Nuxt 3
 - Vue 3 Composition API
+- Typescript
 - Pinia
 - Tailwind CSS
 - Vee Validate
