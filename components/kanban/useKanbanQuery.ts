@@ -9,11 +9,13 @@ export function useKanbanQuery() {
 		queryKey: ['deals'],
 		queryFn: () => DB.listDocuments(DB_ID, COLLECTION_DEALS),
 		select(data) {
-			const newBoard: IColumn[] = structuredClone(KANBAN_DATA)
+			const newCanbanData: IColumn[] = structuredClone(KANBAN_DATA)
 			const deals = data.documents as unknown as IDeal[]
 
 			for (const deal of deals) {
-				const columnForDeal = newBoard.find((col) => col.id === deal.status)
+				const columnForDeal = newCanbanData.find(
+					(col) => col.id === deal.status
+				)
 
 				if (columnForDeal) {
 					columnForDeal.items.push({
@@ -27,7 +29,7 @@ export function useKanbanQuery() {
 				}
 			}
 
-			return newBoard
+			return newCanbanData
 		},
 	})
 }
