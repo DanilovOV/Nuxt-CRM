@@ -29,21 +29,15 @@ const { mutate } = useMutation({
 		DB.updateDocument(DB_ID, COLLECTION_DEALS, docId, {
 			status,
 		}),
-	onSuccess: () => {
-		refetch()
-	},
+	onSuccess: () => refetch(),
 })
 
-function handleDragStart(card: ICard, column: IColumn) {
+const handleDragStart = (card: ICard, column: IColumn) => {
 	dragCardRef.value = card
 	sourceColumnRef.value = column
 }
 
-function handleDragOver(event: DragEvent) {
-	event.preventDefault()
-}
-
-function handleDrop(targetColumn: IColumn) {
+const handleDrop = (targetColumn: IColumn) => {
 	if (dragCardRef.value && sourceColumnRef.value) {
 		mutate({ docId: dragCardRef.value.id, status: targetColumn.id })
 	}
@@ -59,7 +53,7 @@ function handleDrop(targetColumn: IColumn) {
 				<div
 					v-for="(column, index) in data"
 					:key="column.id"
-					@dragover="handleDragOver"
+					@dragover.prevent
 					@drop="() => handleDrop(column)"
 					class="min-h-screen"
 				>
