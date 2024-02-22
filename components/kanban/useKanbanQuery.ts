@@ -18,16 +18,14 @@ export function useKanbanQuery() {
 			for (const deal of deals) {
 				const column = newBoard.find((col) => col.id === deal.status)
 				if (column) {
-					column.items = [
-						{
-							$createdAt: deal.$createdAt,
-							id: deal.$id,
-							name: deal.name,
-							price: deal.price,
-							companyName: deal.customer.name,
-							status: column.name,
-						},
-					]
+					column.items.push({
+						$createdAt: deal.$createdAt,
+						id: deal.$id,
+						name: deal.name,
+						price: deal.price,
+						companyName: deal.customer.name,
+						status: column.name,
+					})
 				}
 			}
 
