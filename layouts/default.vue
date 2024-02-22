@@ -21,12 +21,12 @@ onMounted(async () => {
 <template>
 	<LayoutLoader v-if="isLoadingStore.isLoading" />
 	<section
-		v-else
+		v-show="!isLoadingStore.isLoading"
 		:class="{ grid: store.isAuth }"
 		style="min-height: 100vh"
 	>
 		<LayoutSidebar v-if="store.isAuth" />
-		<slot />
+		<NuxtPage />
 	</section>
 </template>
 
