@@ -9,22 +9,20 @@ export function useKanbanQuery() {
 		queryKey: ['deals'],
 		queryFn: () => DB.listDocuments(DB_ID, COLLECTION_DEALS),
 		select(data) {
-			const newBoard: IColumn[] = KANBAN_DATA.map((column) => ({
-				...column,
-				items: [],
-			}))
-
+			const newBoard: IColumn[] = structuredClone(KANBAN_DATA)
 			const deals = data.documents as unknown as IDeal[]
+
 			for (const deal of deals) {
-				const column = newBoard.find((col) => col.id === deal.status)
-				if (column) {
-					column.items.push({
+				const columnForDeal = newBoard.find((col) => col.id === deal.status)
+
+				if (columnForDeal) {
+					columnForDeal.items.push({
 						$createdAt: deal.$createdAt,
 						id: deal.$id,
 						name: deal.name,
 						price: deal.price,
 						companyName: deal.customer.name,
-						status: column.name,
+						status: columnForDeal.name,
 					})
 				}
 			}
