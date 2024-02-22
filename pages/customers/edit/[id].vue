@@ -55,7 +55,7 @@ const { mutate: uploadImage, isPending: isUploadImagePending } = useMutation({
 	},
 })
 
-const onSubmit = handleSubmit(values => {
+const onSubmit = handleSubmit((values) => {
 	mutate(values)
 })
 </script>
@@ -66,7 +66,10 @@ const onSubmit = handleSubmit(values => {
 			Редактирование {{ (data as unknown as ICustomerFormState)?.name }}
 		</h1>
 
-		<form @submit="onSubmit" class="form">
+		<form
+			@submit="onSubmit"
+			class="form"
+		>
 			<UiInput
 				placeholder="Наименование"
 				v-model="name"
@@ -109,15 +112,20 @@ const onSubmit = handleSubmit(values => {
 				</label>
 			</div>
 
-			<UiButton :disabled="isPending" variant="secondary" class="mt-3">
+			<UiButton
+				:disabled="isPending"
+				variant="secondary"
+				class="mt-3"
+			>
 				{{ isPending ? 'Загрузка...' : 'Сохранить' }}
 			</UiButton>
 		</form>
 	</div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .input {
 	@apply border-[#161c26] mb-4 placeholder:text-[#748092] focus:border-border transition-colors;
 }
 </style>
+

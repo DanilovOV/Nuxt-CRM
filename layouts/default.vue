@@ -30,7 +30,7 @@ onMounted(async () => {
 	</section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .grid {
 	display: grid;
 	grid-template-columns: 1fr 6fr;

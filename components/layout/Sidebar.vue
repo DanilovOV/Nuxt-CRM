@@ -41,5 +41,3 @@ const logout = async () => {
 		<LayoutMenu />
 	</aside>
 </template>
-
-<style lang="scss" scoped></style>

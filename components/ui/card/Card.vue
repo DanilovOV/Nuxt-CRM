@@ -20,7 +20,7 @@ const props = defineProps<{
 	</div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @keyframes show {
 	from {
 		@apply border-[#a252c83d];
@@ -43,3 +43,4 @@ const props = defineProps<{
 	animation: show 0.3s ease-in-out;
 }
 </style>
+
