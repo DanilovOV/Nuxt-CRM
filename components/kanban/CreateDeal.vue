@@ -15,15 +15,15 @@ interface IDealFormState extends Pick<IDeal, 'name' | 'price'> {
 	status: string
 }
 
-const props = defineProps({
-	status: {
-		type: String,
-		default: '',
-	},
-	refetch: {
-		type: Function,
-	},
-})
+const props = withDefaults(
+	defineProps<{
+		status?: string
+		refetch: () => void
+	}>(),
+	{
+		status: '',
+	}
+)
 
 const { handleSubmit, defineField, handleReset } = useForm<IDealFormState>({
 	initialValues: {
@@ -41,7 +41,7 @@ const { mutate, isPending } = useMutation({
 	mutationFn: (data: IDealFormState) =>
 		DB.createDocument(DB_ID, COLLECTION_DEALS, uuid(), data),
 	onSuccess() {
-		props.refetch && props.refetch()
+		props.refetch()
 		handleReset()
 	},
 })
